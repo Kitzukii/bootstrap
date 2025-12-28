@@ -1,5 +1,4 @@
 local lib = {}
-local uri = "https://raw.githubusercontent.com/Kitzukii/apioframe-cores/refs/heads/main/"
 local version_ext = "__version__"
 
 fs=fs
@@ -10,9 +9,8 @@ http=http
 --  since this is inside the code)
 local needed_files = {
     "__data__", "__version__",
-    "agent.lua", "bootstrap.lua",
-    "startup.lua", "update.lua",
-    "LISENCE"
+    "main.lua", "bootstrap.lua",
+    "startup.lua", "update.lua"
 }
 
 local function splitVersion(v)
@@ -51,7 +49,7 @@ local function getLocalVer()
     return ver_data
 end
 
-function lib.update(bootstrap)
+function lib.update(bootstrap,gituri)
     local git_version = ""
     local local_version = getLocalVer()
 

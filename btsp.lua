@@ -35,13 +35,13 @@ function btsp.finish_install()
     })
 end
 
-function btsp.init(program)
+function btsp.init(program,gituri)
     btsp.clog("Bootstrap is loading...", colors.green)
     os.sleep(0.1+math.random(-0.05,0.05))
 
-    local ok, out = pcall(btsp.__updater__.update, btsp)
+    local ok, out = pcall(btsp.__updater__.update, btsp, gituri)
     if ok then
-        btsp.clog("", colors.green)
+        btsp.clog("Update finished.", colors.green)
     else
         btsp.error("Update on bootstrap initialization failed.", tostring(out))
         return false
